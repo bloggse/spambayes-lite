@@ -4,6 +4,8 @@
 import dns.resolver
 import dns.exception
 import dns.reversename
+
+
 class NSCache(object):
     "Cached DNS resolver and cache singleton"
 

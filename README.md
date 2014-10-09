@@ -2,7 +2,7 @@
 This is my attempt to clean up and reuse this code. Focus will be:
  * Python 3.4 support
  * use databases from the 21st century
- * update deps to modern equivalents (pydns is obolete)
+ * ~~update deps to modern equivalents (pydns is obolete)~~ DONE
  * remove GUI crap and make it a pure library
  * attempt to break support with windows ;-)
  * whatever else I can come up with
