@@ -59,13 +59,14 @@ import sys
 import time
 import types
 import tempfile
-from spambayes import classifier
-from spambayes.Options import options, get_pathname_option
+from spambayes_lite import classifier
+from spambayes_lite.Options import options, get_pathname_option
 import errno
 import shelve
-from spambayes import cdb
-from spambayes import dbmstorage
-from spambayes.safepickle import pickle_write, pickle_read
+from spambayes_lite import cdb
+from spambayes_lite import dbmstorage
+from spambayes_lite.safepickle import pickle_write, pickle_read
+from spambayes_lite.mongo_storage import MongoClassifier
 
 # Make shelve use binary pickles by default.
 oldShelvePickler = shelve.Pickler
@@ -782,7 +783,7 @@ class ZODBClassifier(object):
         if pack and self.mode != 'r':
             self.pack(time.time()-60*60*24, retain_backup)
 
-        # Do the closing.        
+        # Do the closing.
         self.DB.close()
         self.storage.close()
 
