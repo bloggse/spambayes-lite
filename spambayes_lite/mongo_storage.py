@@ -92,9 +92,11 @@ class MongoClassifier(object, classifier.Classifier):
                 if "word" in r]
 
     def _set_save_state(self, state):
-        self.db[self.STATE_COLLECTION].insert(
-            {"collection": self.collection_name,
-             "wordinfo": state.wordinfo,
-             "nspam": state.nspam,
-             "nham": state.nham})
+        self.db[self.STATE_COLLECTION].update(
+            {"collection": self.collection_name},
+            {"$set":
+             {"collection": self.collection_name,
+              "wordinfo": state.wordinfo,
+              "spamcount": state.spamcount,
+              "hamcount": state.hamcount}}, upsert=True)
 

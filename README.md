@@ -1,7 +1,7 @@
 # spambayes-lite
 This is my attempt to clean up and reuse this code. Focus will be:
  * Python 3.4 support
- * use databases from the 21st century
+ * ~~use databases from the 21st century~~ MongoDB storage backend now available
  * ~~update deps to modern equivalents (pydns is obolete)~~ DONE
  * remove GUI crap and make it a pure library
  * attempt to break support with windows ;-)

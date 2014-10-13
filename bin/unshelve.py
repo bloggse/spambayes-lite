@@ -16,11 +16,11 @@ def import_dbm(dbfname, dbname=None, write=False):
     if dbname is None:
         dbname = dbfname.split("/")[-1].split(".")[0]
     old = DBDictClassifier(dbfname, mode="r")
+    state = old.db.get("saved state")
     length = len(old.db)
     count = 0
     if write:
         new = MongoClassifier(collection_name=dbname)
-        state = old.db.get("saved state")
         state = MongoClassifierState(
             wordinfo = state[0],
             hamcount = state[1],
@@ -33,7 +33,9 @@ def import_dbm(dbfname, dbname=None, write=False):
             update_output(dbname, count, length)
             new._set_row(key, data[0], data[1])
     else:
-        print("%s: %d records -> import target: %s" % (dbfname, length, dbname), end="")
+        print(state)
+        print(("%s: %d records (spamcount: %d, hamcount: %d-> import target: %s" %
+               (dbfname, length, state[2], state[1], dbname)), end="")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
