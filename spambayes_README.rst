@@ -1,14 +1,7 @@
-# spambayes-lite
-This is my attempt to clean up and reuse this code. Focus will be:
- * Python 3.4 support
- * ~~use databases from the 21st century~~ MongoDB storage backend now available
- * ~~update deps to modern equivalents (pydns is obolete)~~ DONE
- * remove GUI crap and make it a pure library
- * attempt to break support with windows ;-)
- * whatever else I can come up with
+=========
+SpamBayes
+=========
 
-(original readme quoted verbatim below)
-~~~
 Copyright (C) 2002-2007 Python Software Foundation; All Rights Reserved
 
 The Python Software Foundation (PSF) holds copyright on all material
@@ -520,4 +513,3 @@ There are eight main components to the SpamBayes system:
    suspected spam. When new mail arrives, the filter will move mail to the
    appropriate location (ham is left in the original folder).
 
-~~~

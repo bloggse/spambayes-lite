@@ -154,6 +154,10 @@ class DBDictClassifier(classifier.Classifier):
         self.db_name = db_name
         self.load()
 
+    def __repr__(self):
+        return ("DBDictClassifier(db=%s, mode=%s, nham=%d, nspam=%d)" %
+                (os.path.basename(self.db_name), self.mode, self.nham, self.nspam))
+
     def close(self):
         # Close our underlying database.  Better not assume all databases
         # have close functions!
